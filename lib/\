@@ -1,0 +1,35 @@
+
+module.exports = {
+    splitArrayPart1: function(input, maxLength) {
+        console.log(maxLength);
+        let len = input.length;
+        if(len <= maxLength){
+            return [input];
+        }
+       
+        let result = [[]];
+
+        let k=0, j=0;
+
+        for( let i=0; i<len; ++i){
+            //console.log(' j > maxLength ' + (j > maxLength));
+            //console.log(' j ' + j );
+            //console.log(' maxLength  '+ maxLength  );
+            if( j >= maxLength){
+                console.log('here');
+                ++k;
+                j=0;
+                result.push([]);
+            }
+            console.log("k, i, j:" + k + ", "+ i + ", "  +j);
+            result[k].push(input[i]);
+            ++j;
+        }
+
+
+        return result;
+
+    }
+
+};
+
